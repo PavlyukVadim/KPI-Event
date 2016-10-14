@@ -1,5 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule} from '@angular/router';
+
+
 
 import { AppComponent }  from './app.component';
 import {Slide} from './slide.component';
@@ -8,7 +11,16 @@ import {Angular2Carousel} from './carousel-example';
 
 
 @NgModule({
-  imports: [ BrowserModule ],
+  imports: [ 
+  BrowserModule,
+	RouterModule.forRoot([
+	  {
+	    path: 'map',
+	    component: Angular2Carousel
+	  }
+	])
+  ],
+
   declarations: [ 
   	AppComponent,
    	Slide,

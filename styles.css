@@ -6,3 +6,7 @@ body, div, menu, section, header, ul, footer, img, nav, .row{
 .carousel-control{
 	cursor: pointer;
 }
+
+body{
+	margin-bottom: 100px;
+}

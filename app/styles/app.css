@@ -1,3 +1,34 @@
 #main-title{
 	text-align: center;
 }
+
+h2{
+	padding: 15px;
+}
+
+.bs-example{
+	margin-top: 50px;
+}
+
+.flip3D{ width:240px; height:75px; margin:10px; float:left; }
+.flip3D > .front{
+	position:absolute;
+	transform: perspective( 600px ) rotateY( 0deg );
+	background: rgba(0, 0, 0, 0.2); width:240px; height:75px; border-radius: 5px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+	padding: 10px;
+}
+.flip3D > .back{
+	position:absolute;
+	transform: perspective( 600px ) rotateY( 180deg );
+	background: rgba(0, 0, 0, 0.1); width:240px; height:75px; border-radius: 5px;
+	backface-visibility: hidden;
+	transition: transform .5s linear 0s;
+}
+.flip3D:hover > .front{
+	transform: perspective( 600px ) rotateY( -180deg );
+}
+.flip3D:hover > .back{
+	transform: perspective( 600px ) rotateY( 0deg );
+}
