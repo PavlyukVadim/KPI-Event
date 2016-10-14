@@ -4,7 +4,11 @@ declare var google: any;
 
 @Component({
   selector: 'map',
-  template: `<div id="gmap" style="width:500px;height:380px;"></div>`
+  template: `<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol><div id="gmap" style="width:500px;height:380px;"></div>`
 })
 export class MapComponent implements OnInit {
   ngOnInit() {

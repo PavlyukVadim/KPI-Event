@@ -12,6 +12,8 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var menu_component_1 = require('./menu.component');
+var main_component_1 = require('./main.component');
 var slide_component_1 = require('./slide.component');
 var carousel_component_1 = require('./carousel.component');
 var carousel_example_1 = require('./carousel-example');
@@ -27,11 +29,17 @@ var AppModule = (function () {
                     {
                         path: 'map',
                         component: map_component_1.MapComponent
+                    },
+                    {
+                        path: 'main',
+                        component: main_component_1.MainComponent
                     }
                 ]),
             ],
             declarations: [
                 app_component_1.AppComponent,
+                menu_component_1.MenuComponent,
+                main_component_1.MainComponent,
                 slide_component_1.Slide,
                 carousel_component_1.Carousel,
                 carousel_example_1.Angular2Carousel,

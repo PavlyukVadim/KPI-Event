@@ -43,7 +43,7 @@ var MapComponent = (function () {
     MapComponent = __decorate([
         core_1.Component({
             selector: 'map',
-            template: "<div id=\"gmap\" style=\"width:500px;height:380px;\"></div>"
+            template: "<ol class=\"breadcrumb\">\n  <li><a href=\"#\">Home</a></li>\n  <li><a href=\"#\">Library</a></li>\n  <li class=\"active\">Data</li>\n</ol><div id=\"gmap\" style=\"width:500px;height:380px;\"></div>"
         }), 
         __metadata('design:paramtypes', [])
     ], MapComponent);

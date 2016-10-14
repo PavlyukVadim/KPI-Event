@@ -1,0 +1,37 @@
+<h1 id="main-title">KPI Event</h1>
+<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci explicabo eum fugiat magnam temporibus sapiente doloremque ex harum? Modi, totam. Cumque aliquam commodi voluptate aperiam culpa rem temporibus a magnam.</h2>
+<my-carousel></my-carousel>
+
+<div class="bs-example">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Panel heading</div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th >#</th>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Address/Map</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <tr *ngFor="let event of events">
+          <td>{{event.id}}</td>
+          <td>{{event.date}}</td>
+          <td>{{event.title}}</td>
+          <td>{{event.description}}</td>
+          <td>
+            <div class="flip3D">
+              <div class="back"><button type="button" class="btn btn-default"><a routerLink="/map">show map</a></button></div>
+              <div class="front">{{event.address}}</div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
