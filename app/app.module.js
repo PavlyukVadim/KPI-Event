@@ -15,6 +15,7 @@ var app_component_1 = require('./app.component');
 var slide_component_1 = require('./slide.component');
 var carousel_component_1 = require('./carousel.component');
 var carousel_example_1 = require('./carousel-example');
+var map_component_1 = require('./map.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,15 +26,16 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot([
                     {
                         path: 'map',
-                        component: carousel_example_1.Angular2Carousel
+                        component: map_component_1.MapComponent
                     }
-                ])
+                ]),
             ],
             declarations: [
                 app_component_1.AppComponent,
                 slide_component_1.Slide,
                 carousel_component_1.Carousel,
-                carousel_example_1.Angular2Carousel
+                carousel_example_1.Angular2Carousel,
+                map_component_1.MapComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

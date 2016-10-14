@@ -8,6 +8,7 @@ import { AppComponent }  from './app.component';
 import {Slide} from './slide.component';
 import {Carousel} from './carousel.component';
 import {Angular2Carousel} from './carousel-example';
+import {MapComponent} from './map.component';
 
 
 @NgModule({
@@ -16,16 +17,17 @@ import {Angular2Carousel} from './carousel-example';
 	RouterModule.forRoot([
 	  {
 	    path: 'map',
-	    component: Angular2Carousel
+	    component: MapComponent
 	  }
-	])
+	]),
   ],
 
   declarations: [ 
   	AppComponent,
    	Slide,
    	Carousel,
-   	Angular2Carousel
+   	Angular2Carousel,
+   	MapComponent
   ],
   bootstrap: [ AppComponent ]
 })
