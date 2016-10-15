@@ -38,7 +38,8 @@ var MapComponent = (function () {
             position: new google.maps.LatLng(that.event.coordinates.lat, that.event.coordinates.lng)
         });
         marker.setAnimation(google.maps.Animation.BOUNCE);
-        var posButtonDiv = document.createElement('div');
+        var posButtonDiv;
+        posButtonDiv = document.createElement('div');
         var posButton = that.PosControl(posButtonDiv, map);
         posButtonDiv.index = 1;
         map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(posButtonDiv);

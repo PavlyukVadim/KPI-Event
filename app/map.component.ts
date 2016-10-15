@@ -48,7 +48,8 @@ export class MapComponent implements OnInit {
 
     marker.setAnimation(google.maps.Animation.BOUNCE);
 
-    var posButtonDiv = document.createElement('div');
+    var posButtonDiv : any;
+    posButtonDiv = document.createElement('div');
     var posButton = that.PosControl(posButtonDiv, map);
 
     posButtonDiv.index = 1;
