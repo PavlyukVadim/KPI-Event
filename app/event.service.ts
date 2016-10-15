@@ -6,4 +6,14 @@ export class EventService {
   getEvents(): Promise<any> {
     return Promise.resolve(EVENTS);
   }
+
+  getEventById(id: number) : Event {
+		for (let event of EVENTS) {
+			if (event.id === id) {
+				return event;
+			}
+		}
+		return null;
+  } 
+
 }

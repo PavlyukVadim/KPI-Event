@@ -4,7 +4,7 @@ export class Event{
 	title: string;
 	description: string;
 	address: string;
-	coordinates: {x: number, y: number};
+	coordinates: {lat: number, lng: number};
 	img: string;
 }
 	

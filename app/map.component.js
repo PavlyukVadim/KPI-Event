@@ -10,59 +10,89 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var event_service_1 = require('./event.service');
 var MapComponent = (function () {
-    function MapComponent(route, router) {
+    function MapComponent(route, router, eventService) {
         this.route = route;
         this.router = router;
+        this.eventService = eventService;
     }
-    MapComponent.prototype.gotoHeroes = function () {
-        //let heroId = this.hero ? this.hero.id : null;
-        // Pass along the hero id if available
-        // so that the HeroList component can select that hero.
-        this.router.navigate(['/map', { id: 1 }]);
-    };
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            var id = +params['id']; // (+) converts string 'id' to a number
-            alert(id);
-            _this.router.navigate(['/map', 1]);
-            //this.service.getHero(id).then(hero => this.hero = hero);
+            var id = +params['id'];
+            _this.event = _this.eventService.getEventById(id);
+            console.log(_this.event);
         });
+        var that = this;
         var mapProp = {
-            center: new google.maps.LatLng(50.44, 30.46),
-            zoom: 20,
+            center: new google.maps.LatLng(that.event.coordinates.lat, that.event.coordinates.lng),
+            zoom: 18,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("gmap"), mapProp);
-        var infoWindow = new google.maps.InfoWindow({ map: map });
-        /*if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-  
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('Location found.');
-          map.setCenter(pos);
-          }, function() {
-            this.handleLocationError(true, infoWindow, map.getCenter());
-          });}*/
+        var marker = new google.maps.Marker({
+            map: map,
+            draggable: false,
+            animation: google.maps.Animation.DROP,
+            position: new google.maps.LatLng(that.event.coordinates.lat, that.event.coordinates.lng)
+        });
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        var posButtonDiv = document.createElement('div');
+        var posButton = that.PosControl(posButtonDiv, map);
+        posButtonDiv.index = 1;
+        map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(posButtonDiv);
     };
-    MapComponent.prototype.handleLocationError = function (browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
+    MapComponent.prototype.PosControl = function (posButtonDiv, map) {
+        // Set CSS for the control border.
+        var controlUI = document.createElement('div');
+        controlUI.style.backgroundColor = '#fff';
+        controlUI.style.border = '2px solid #fff';
+        controlUI.style.borderRadius = '3px';
+        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.marginBottom = '22px';
+        controlUI.style.textAlign = 'center';
+        posButtonDiv.appendChild(controlUI);
+        // Set CSS for the control interior.
+        var controlText = document.createElement('div');
+        controlText.style.color = 'rgb(25,25,25)';
+        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        controlText.style.fontSize = '16px';
+        controlText.style.lineHeight = '38px';
+        controlText.style.paddingLeft = '5px';
+        controlText.style.paddingRight = '5px';
+        controlText.innerHTML = 'Моє місцезнаходження';
+        controlUI.appendChild(controlText);
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.setCenter(pos);
+                    map.setZoom(12);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        draggable: false,
+                        animation: google.maps.Animation.DROP,
+                        position: pos
+                    });
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }, function () { });
+            }
+        });
     };
     MapComponent = __decorate([
         core_1.Component({
             selector: 'map',
             templateUrl: 'app/templates/map.html',
-            styleUrls: ['app/styles/map.css']
+            styleUrls: ['app/styles/map.css'],
+            providers: [event_service_1.EventService]
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, event_service_1.EventService])
     ], MapComponent);
     return MapComponent;
 }());
