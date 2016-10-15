@@ -3,7 +3,7 @@ import { Event } from './event';
 import { EVENTS } from './mock-event';
 
 export class EventService {
-  getEvents(): Promise<Event[]> {
+  getEvents(): Promise<any> {
     return Promise.resolve(EVENTS);
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule} from '@angular/router';
+
 
 
 import { AppComponent }  from './app.component';
@@ -14,19 +14,13 @@ import {MapComponent} from './map.component';
 
 
 
+import { AppRoutingModule } from './app-routing.module';
+
+
 @NgModule({
   imports: [ 
   BrowserModule,
-	RouterModule.forRoot([
-	  {
-	    path: 'map',
-	    component: MapComponent
-	  },
-    {
-      path: 'main',
-      component: MainComponent
-    }
-	]),
+  AppRoutingModule,  
   ],
 
   declarations: [ 

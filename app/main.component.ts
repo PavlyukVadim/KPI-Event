@@ -12,7 +12,7 @@ import { EventService } from './event.service';
 })
 
 export class MainComponent implements OnInit {
-  events: Event[];
+  events: any;
   
   constructor(private eventService: EventService) { }
  
