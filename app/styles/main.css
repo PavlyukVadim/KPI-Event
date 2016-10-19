@@ -1,19 +1,22 @@
-.bs-example{
-	margin: 30px;
-}
-
 #main-title{
 	text-align: center;
 }
 h2{
 	padding: 15px;
 }
-.bs-example{
-	margin-top: 50px;
+.bs-example-list{
+	margin: 50px;
+	
+	font: 17px Arial;
 }
 
-
-.flip3D{ width:240px; height:75px; margin:10px; float:left; }
+.flip3D{ 
+	width:240px;
+	height:75px;
+	margin:10px;
+	float:left;
+	font: 18px Arial;
+ }
 .flip3D > .front{
 	text-align: center;
 	position:absolute;
@@ -35,4 +38,27 @@ h2{
 }
 .flip3D:hover > .back{
 	transform: perspective( 600px ) rotateY( 0deg );
+}
+
+button{
+	width: 240px;
+	height: 75px;
+	font: 18px Arial;
+}
+
+@media only screen and (max-width: 1000px) {    
+	button{
+		width: 140px;
+		font: 15px Arial;
+	}
+
+	.flip3D{ 
+		width:140px;
+ 	}	
+ 	.flip3D > .front{
+		background: rgba(0, 0, 0, 0.2); width:140px; height:75px; border-radius: 5px;
+	}
+	.flip3D > .back{
+		background: rgba(0, 0, 0, 0.1); width:140px; height:75px; border-radius: 5px;
+	}
 }

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
 var menu_component_1 = require('./menu.component');
+var footer_component_1 = require('./footer.component');
 var main_component_1 = require('./main.component');
 var slide_component_1 = require('./slide.component');
 var carousel_component_1 = require('./carousel.component');
@@ -30,6 +31,7 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 menu_component_1.MenuComponent,
+                footer_component_1.FooterComponent,
                 main_component_1.MainComponent,
                 slide_component_1.Slide,
                 carousel_component_1.Carousel,

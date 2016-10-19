@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
 import { MenuComponent } from './menu.component';
+import { FooterComponent } from './footer.component';
 import { MainComponent } from './main.component';
 
 import {Slide} from './slide.component';
@@ -26,6 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [ 
   	AppComponent,
     MenuComponent,
+    FooterComponent,
     MainComponent,
    	Slide,
    	Carousel,

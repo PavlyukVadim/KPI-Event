@@ -145,7 +145,8 @@ var Carousel = (function () {
     Carousel = __decorate([
         core_1.Component({
             selector: 'carousel',
-            template: "\n   <div (mouseenter)=\"pause()\" (mouseleave)=\"play()\">\n    <ol class=\"carousel-indicators\" [hidden]=\"slides.length <= 1\">\n      <li *ngFor=\"let slidez of slides\" [class.active]=\"slidez.active === true\" (click)=\"select(slidez)\"></li>\n    </ol>\n    <div class=\"carousel-inner\"><ng-content></ng-content></div>\n      <a class=\"left carousel-control\" (click)=\"prev()\" [hidden]=\"!slides.length\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n      <a class=\"right carousel-control\" (click)=\"next()\" [hidden]=\"!slides.length\">\n        <span class=\"glyphicon glyphicon-chevron-right\"></span>\n      </a>\n  </div>\n  "
+            templateUrl: 'app/templates/carousel.html',
+            styles: ['app/styles/carousel.css']
         }), 
         __metadata('design:paramtypes', [])
     ], Carousel);

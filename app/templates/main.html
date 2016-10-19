@@ -2,10 +2,10 @@
 <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci explicabo eum fugiat magnam temporibus sapiente doloremque ex harum? Modi, totam. Cumque aliquam commodi voluptate aperiam culpa rem temporibus a magnam.</h2>
 <my-carousel></my-carousel>
 
-<div class="bs-example">
+<div class="bs-example-list">
   <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Panel heading</div>
+    <div class="panel-heading">Найближчі події</div>
 
     <!-- Table -->
     <table class="table">
@@ -26,7 +26,7 @@
           <td>{{event.description}}</td>
           <td>
             <div class="flip3D">
-              <div class="back"><button type="button" class="btn btn-default"><a routerLink="/maps/{{event.id}}" routerLinkActive="active">show map</a></button></div>
+              <div class="back"><button type="button" class="btn btn-default"><a routerLink="/maps/{{event.id}}" routerLinkActive="active">Показати на карті</a></button></div>
               <div class="front">{{event.address}}</div>
             </div>
           </td>
